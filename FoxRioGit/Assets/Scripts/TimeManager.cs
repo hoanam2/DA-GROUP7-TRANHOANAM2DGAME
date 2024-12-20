@@ -50,7 +50,7 @@ public class TimeManager : MonoBehaviour
         else
         {
             timeRemaining = 0;
-            timerIsRunning = false;
+            TimeStop();
         }
     }
     public void TimeStop()

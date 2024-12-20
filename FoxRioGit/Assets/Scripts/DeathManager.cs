@@ -36,6 +36,8 @@ public class DeathManager : MonoBehaviour
     {
         DeathPanel.SetActive(false);
         GameManager.Instance.NewGame();
+        TimeManager.Instance.ResetTime();
+        TimeManager.Instance.RunTime();
         ScenesManager.Instance.LoadNewGame();
         Time.timeScale = 1; 
     }
@@ -43,7 +45,6 @@ public class DeathManager : MonoBehaviour
     {
         DeathPanel.SetActive(false);
         TimeManager.Instance.TimeStop();
-        PlayerPrefs.SetInt("Save", 0);
         ScenesManager.Instance.LoadMenu();
         Time.timeScale = 1;
     }

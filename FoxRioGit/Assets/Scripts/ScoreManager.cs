@@ -7,9 +7,9 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
 
-    private float m_score;
+    private int m_score;
 
-    public float Score
+    public int Score
     {
         get { return m_score; }
         set { m_score = value; }
@@ -33,7 +33,7 @@ public class ScoreManager : MonoBehaviour
             Instance = null;
         }
     }
-    public void AddScore(float addingscore)
+    public void AddScore(int addingscore)
     {
         Score += addingscore;
     }

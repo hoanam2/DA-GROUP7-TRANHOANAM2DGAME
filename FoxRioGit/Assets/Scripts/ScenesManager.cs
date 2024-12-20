@@ -7,9 +7,6 @@ public class ScenesManager : MonoBehaviour
 {
     public static ScenesManager Instance { get; private set; }
 
-    public int currentsceneindex;
-    public int scenetocontinue;
-
     private void Awake()
     {
         if (Instance != null)
@@ -34,15 +31,16 @@ public class ScenesManager : MonoBehaviour
         Menu,
         W1L1
     }
+    public int currentscene()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
     public void LoadScene(int SceneIndex)
     {
-        TimeManager.Instance.RunTime();
         SceneManager.LoadScene(SceneIndex);
     }
     public void LoadNewGame()
     {
-        TimeManager.Instance.ResetTime();
-        TimeManager.Instance.RunTime();
         SceneManager.LoadScene(Scene.W1L1.ToString());
     }
     public void LoadMenu()
@@ -56,23 +54,5 @@ public class ScenesManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
-    }
-    public void SaveGame()
-    {
-        currentsceneindex = SceneManager.GetActiveScene().buildIndex;
-        PlayerPrefs.SetInt("Save",currentsceneindex);
-    }
-    public void CountinueGame()
-    {
-        scenetocontinue = PlayerPrefs.GetInt("Save");
-
-        if ( scenetocontinue != 0)
-        {
-            LoadScene(scenetocontinue);
-        }
-        else
-        {
-            return;
-        }
     }
 }

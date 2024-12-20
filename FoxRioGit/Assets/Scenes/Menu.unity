@@ -267,9 +267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cedfe0f9136ff546b0b9959e3e69147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btt_NewGame: {fileID: 816449299}
-  btt_ExitGame: {fileID: 1312174223}
-  btt_ContinueGame: {fileID: 1733479259}
 --- !u!114 &255259359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,17 +605,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 394021924}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &816449299 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
-  m_PrefabInstance: {fileID: 2001917262}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &816449302 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 312019113292334249, guid: 3d317970aa830474696603108f977b1b, type: 3}
@@ -666,17 +652,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77193ac9a7232ca41b6b293e258db160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1312174223 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
-  m_PrefabInstance: {fileID: 1981900964}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1312174226 stripped
@@ -804,22 +779,39 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 170
       objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 255259358}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ContinueTheGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d317970aa830474696603108f977b1b, type: 3}
---- !u!114 &1733479259 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
-  m_PrefabInstance: {fileID: 1733479258}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1733479260 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 312019113292334249, guid: 3d317970aa830474696603108f977b1b, type: 3}
@@ -1143,6 +1135,34 @@ PrefabInstance:
       propertyPath: m_isRightToLeft
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 255259358}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitTheGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1263,6 +1283,34 @@ PrefabInstance:
     - target: {fileID: 5080432242668390437, guid: 3d317970aa830474696603108f977b1b, type: 3}
       propertyPath: m_SizeDelta.x
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 255259358}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Startnewgame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5427276241215098028, guid: 3d317970aa830474696603108f977b1b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -5,27 +5,26 @@ using UnityEngine.UI;
 
 public class UIMenu : MonoBehaviour
 {
-    public Button btt_NewGame;
-    public Button btt_ExitGame;
-    public Button btt_ContinueGame;
+    SaveData saveData;
 
     private void Start()
     {
-        btt_NewGame.onClick.AddListener(Startnewgame);
-        btt_ExitGame.onClick.AddListener(ExitTheGame);
-        btt_ContinueGame.onClick.AddListener(ContinueTheGame);
+        saveData = new SaveData();
     }
-    private void Startnewgame()
+    public void Startnewgame()
     {
         GameManager.Instance.NewGame();
+        TimeManager.Instance.ResetTime();
+        TimeManager.Instance.RunTime();
+        ScoreManager.Instance.ResetScore();
         ScenesManager.Instance.LoadNewGame();
     }
-    private void ExitTheGame()
+    public void ExitTheGame()
     {
         ScenesManager.Instance.ExitGame();
     }
-    private void ContinueTheGame()
+    public void ContinueTheGame()
     {
-        ScenesManager.Instance.CountinueGame();
+        
     }
 }

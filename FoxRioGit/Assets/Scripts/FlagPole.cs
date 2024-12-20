@@ -34,14 +34,5 @@ public class FlagPole : MonoBehaviour
         player.GetComponent<Player>().enabled = false;
        
         yield return MoveToPosition(player, poleBottom.position);
-    //    //yield return MoveToPosition(player, player.position + Vector3.right);
-    //    //yield return MoveToPosition(player, player.position + Vector3.right);
-    //    yield return MoveToPosition(player, castle.position);
-
-    //    //player.gameObject.SetActive(false);
-        
-    //    yield return new WaitForSeconds(2f);
-
-    //    //GameManager.Instance.ResetLevel();
     }
 }

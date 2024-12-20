@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D _rb;
-    Animator _anim;
+    private Rigidbody2D _rb;
+    private Animator _anim;
+    private Collider2D _collider;
 
     float _moveHorizontal;
     float _moveSpeed = 5f;
@@ -15,9 +16,11 @@ public class PlayerController : MonoBehaviour
 
     bool isFacingRight = true;
 
-    float _jumpHight = 5f;
+    float _jumpHight = 4.5f;
     float _jumpTime = 1f;
+
     float distance = 1f;
+    float horizontaldistance = 0.5f;
 
     float _jumpForce => (2f * _jumpHight) / (_jumpTime / 2);
     float gravity => (-2f * _jumpHight) / Mathf.Pow((_jumpTime / 2),2);
@@ -29,13 +32,17 @@ public class PlayerController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _collider = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
+
     void Update()
     {
-        //xet dk xem Player co tren mat phang/mat dat
+        //Checking for platform
+
         _isGrounded = _rb.Raycast(Vector2.down,distance);
+
         if (_isGrounded)
         {
             _anim.SetBool("isJumping", false);
@@ -48,32 +55,34 @@ public class PlayerController : MonoBehaviour
             _anim.SetBool("isJumping",true);
             _anim.SetBool("Grounded", false);
         }
+        //
         ApplyGravity();
         Movement();
         FlipSprite();
+    }     
+    //movement of player
 
-    }
-    void FixedUpdate()
-    {
-        
-    }
-    //movement of character
     private void Movement()
     {
+        //input the x of player
+
         _moveHorizontal = Input.GetAxisRaw("Horizontal");
+
         if (_moveHorizontal != 0)
         {
             _anim.SetBool("isRunning", true);
             _rb.velocity = new Vector2(_moveHorizontal * _moveSpeed,_rb.velocity.y);
         }
-        if (_rb.Raycast(Vector2.right * _rb.velocity.x,distance))
-        {
-            _rb.velocity = new Vector2(_moveHorizontal * _moveSpeed, _rb.velocity.y);
-        }
         else if (_moveHorizontal == 0)
         { 
             _anim.SetBool("isRunning",false);
             _rb.velocity = new Vector2(0f,_rb.velocity.y);
+        }
+
+        //stop when hit the wall
+        if (_rb.Raycast(Vector2.right * _rb.velocity.x, horizontaldistance))
+        {
+            _rb.velocity = new Vector2(0, _rb.velocity.y);
         }
     }
     //jumping for character
@@ -99,14 +108,16 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    //ap dung vat ly cho Player vao trong viec nhay
+
+    //Apply gravity into Player
+
     void ApplyGravity()
     {
         bool falling = _rb.velocity.y < -10f || !Input.GetButton("Jump");
         float multiplier = falling ? 2f : 1f;
 
         _velocity.y += gravity * multiplier * Time.deltaTime;
-        _velocity.y = Mathf.Max(_velocity.y, gravity / 2f);
+        _velocity.y = Mathf.Max(_velocity.y, gravity / 2.5f);
         
         if( _rb.velocity.y < -10f)
             _anim.SetBool("isFalling", true);
@@ -134,6 +145,9 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    //Flip the horizontal of player for facing right or left
+
     void FlipSprite()
     {
         if(isFacingRight && _moveHorizontal <0f || !isFacingRight && _moveHorizontal >0f)

@@ -27,8 +27,6 @@ public class EnemyBehaivour : MonoBehaviour
             {
                 player.Death();
                 TimeManager.Instance.TimeStop();
-                GetComponent<EnityMovement>().enabled = false;
-                _ani.enabled = false;
             }
         }
     }

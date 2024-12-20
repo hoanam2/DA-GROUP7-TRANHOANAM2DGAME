@@ -5,10 +5,16 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     public GameObject PausePanel;
+    public GameObject Player;
+
+    SaveData saveData;
+
     PlayerController playerController;
+
     private void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        saveData = new SaveData();
     }
     private void Update()
     {
@@ -31,7 +37,6 @@ public class PauseManager : MonoBehaviour
     {
         PausePanel.SetActive(false);
         TimeManager.Instance.TimeStop();
-        ScenesManager.Instance.SaveGame();
         ScenesManager.Instance.LoadMenu();
         Time.timeScale = 1;
     }

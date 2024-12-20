@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    bool flag;
+    SaveData saveData;
 
     private int m_world;
     private int m_stage;
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        NewGame();
+       NewGame();
     }
     public void NewGame()
     {
@@ -65,10 +65,7 @@ public class GameManager : MonoBehaviour
         World = 1;
         Stage = 1;
         Coins = 0;
-        
-        ScoreManager.Instance.ResetScore();
     }
-
     public void GameOver()
     {
         DeathManager.Instance.Death();
@@ -86,6 +83,8 @@ public class GameManager : MonoBehaviour
         {
             Coins = 0;
             ScoreManager.Instance.ResetScore();
+            TimeManager.Instance.ResetTime();
+            TimeManager.Instance.RunTime();
             ScenesManager.Instance.LoadNewGame();
         }
         else
@@ -93,7 +92,6 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
-
     public void AddCoin()
     {
         Coins++;
